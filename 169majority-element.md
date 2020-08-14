@@ -74,7 +74,7 @@ public:
             if(nums[i] == current)
                 ++count;
             else
-                -- count;
+                --count;
             if(count < 0)
             {
                 current = nums[i];
