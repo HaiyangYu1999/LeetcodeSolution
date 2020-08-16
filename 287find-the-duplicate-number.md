@@ -106,10 +106,36 @@ public:
 
 ## 3 快慢指针
 
-将这个数组看成一个链表,每个nums[i]为第i个元素的下一个值.
+将这个数组看成一个链表, 第i个元素的下一个元素是位于nums[i]的元素.
 
-因为没有指针指向nums[0]\(数组中没有元素是0), 所以nums[0]是表头.
+例如 [1,3,4,2,2] 看作 1->3->2->4->2->4->2 ...... 这个例子中, 有2个2, 即有2个指向元素4的指针. 4为环中第一个元素.
 
-因为数组中存在duplicate, 即两个值同时指向数组中的某个值. 所以, 这个链表中一定存在环. 类似于"6"这样的链表
+因为数组中存在重复的元素, 即两个值同时指向数组中的某个值. 所以, 这个链表中一定存在环. 类似于"6"这样的链表
 
-利用快慢指针即可找到环的起点.
+利用快慢指针法 **leetcode 142** 即可找到环的起点.然后找到它的下标即可
+
+**不得不感叹想出这个方法的人的聪明, 完美的利用了0 < nums[i] < n的特点. 看样子同一个物种的🧠差距还是非常大的**
+
+```c++
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        int fast = 0;
+        int slow = 0;
+        do
+        {
+            fast = nums[fast];
+            fast = nums[fast];
+            slow = nums[slow];
+        }while(fast != slow);
+        slow = 0;
+        while(slow != fast)
+        {
+            slow = nums[slow];
+            fast = nums[fast];
+        }
+        return slow;
+    }
+};
+```
+
