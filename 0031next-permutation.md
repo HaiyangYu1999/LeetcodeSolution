@@ -22,7 +22,7 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
     1. 从后遍历，寻找第一个升序的数，即 nums[k - 1] < nums[k]
     2. 在[k, end]中寻找比nums[k - 1]大的最小值
     3. 交换第二步找到的最小值和nums[k - 1]
-    4. 将[k, end]中的内容reverse, 因为之前[k, end]中的内容是满足降序的，如果不	reverse不是紧挨着的下一个排列。
+    4. 将[k, end]中的内容reverse, 因为之前[k, end]中的内容是满足降序的，如果不reverse就不是紧挨着的下一个排列了。
 
 ```c++
 class Solution {
