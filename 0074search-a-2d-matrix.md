@@ -82,7 +82,7 @@ public:
 是**"计算机科学领域的任何问题都可以通过增加一个间接的中间层来解决"**的思想的应用 在这个题中, 中间层即为函数get1DValue(), 给调用的人一种假象, 用的就是一维数组
 
 ```c++
-inline int get1DValue(const vector<vector<int>>& matrix, int index){
+int get1DValue(const vector<vector<int>>& matrix, int index){
     return matrix[index / matrix.front().size()][index % matrix.front().size()];
 }
 ```
@@ -119,7 +119,7 @@ public:
         return false;
     }
 private:
-    inline int get1DValue(const vector<vector<int>>& matrix, int index)
+    int get1DValue(const vector<vector<int>>& matrix, int index)
     {
         return matrix[index / matrix.front().size()][index % matrix.front().size()];
     }

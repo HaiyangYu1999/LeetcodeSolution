@@ -68,7 +68,7 @@ private:
         else
             throw string("In no case you could enter this block. Logic Error!");
     }
-    inline bool isOutOfBoundary(const vector<vector<char>>& board, int i, int j)
+    bool isOutOfBoundary(const vector<vector<char>>& board, int i, int j)
     {
         return i >= board.size() || i < 0 || j >= board.front().size() || j < 0;
     }
@@ -184,7 +184,7 @@ private:
         else
             throw string("In no case you could enter this block. Logic Error!");
     }
-    inline bool isOutOfBoundary(const vector<vector<char>>& board, int i, int j)
+    bool isOutOfBoundary(const vector<vector<char>>& board, int i, int j)
     {
         return i >= board.size() || i < 0 || j >= board.front().size() || j < 0;
     }
