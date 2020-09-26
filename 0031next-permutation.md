@@ -19,10 +19,11 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 最大的排列是满足降序
 最小的排列是满足升序
 因此寻找后一个排列的操作是:
+
     1. 从后遍历，寻找第一个升序的数，即 nums[k - 1] < nums[k]
-    2. 在[k, end]中寻找比nums[k - 1]大的最小值
-    3. 交换第二步找到的最小值和nums[k - 1]
-    4. 将[k, end]中的内容reverse, 因为之前[k, end]中的内容是满足降序的，如果不reverse就不是紧挨着的下一个排列了。
+        2. 在[k, end]中寻找比nums[k - 1]大的最小值
+        3. 交换第二步找到的最小值和nums[k - 1]
+        4. 将[k, end]中的内容reverse, 因为之前[k, end]中的内容是满足降序的，如果不reverse就不是紧挨着的下一个排列了。
 
 ```c++
 class Solution {
@@ -55,21 +56,21 @@ public:
     }
 private:
     int descUpperBound(const vector<int>& nums,int i,int j,int target)
-{
-    while(i <= j)
     {
-        int mid = i + (j - i) / 2;
-        if(nums[mid] > target)
+        while(i <= j)
         {
-            i = mid + 1;
+            int mid = i + (j - i) / 2;
+            if(nums[mid] > target)
+            {
+                i = mid + 1;
+            }
+            else
+            {
+                j = mid - 1;
+            }
         }
-        else
-        {
-            j = mid - 1;
-        }
+        return j;
     }
-    return j;
-}
 };
 ```
 
