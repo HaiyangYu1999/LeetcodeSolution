@@ -1,4 +1,4 @@
-Given the `root` of a binary tree, return *the inorder traversal of its nodes' values*.
+Given the `root` of a binary tree, return *the preorder traversal of its nodes' values*.
 
  
 
@@ -8,7 +8,7 @@ Given the `root` of a binary tree, return *the inorder traversal of its nodes' v
 
 ```
 Input: root = [1,null,2,3]
-Output: [1,3,2]
+Output: [1,2,3]
 ```
 
 **Example 2:**
@@ -31,7 +31,7 @@ Output: [1]
 
 ```
 Input: root = [1,2]
-Output: [2,1]
+Output: [1,2]
 ```
 
 **Example 5:**
@@ -56,51 +56,9 @@ Output: [1,2]
 
 Recursive solution is trivial, could you do it iteratively?
 
-## 1 递归
+## 非递归
 
-记得之前看到过这个非递归解法, 但是实在想不出来了😭😭
-
-```java
-/**
- * Definition for a binary tree node.
- * public class TreeNode {
- *     int val;
- *     TreeNode left;
- *     TreeNode right;
- *     TreeNode() {}
- *     TreeNode(int val) { this.val = val; }
- *     TreeNode(int val, TreeNode left, TreeNode right) {
- *         this.val = val;
- *         this.left = left;
- *         this.right = right;
- *     }
- * }
- */
-class Solution {
-    public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> ans = new ArrayList<>();
-        inorderTraversal(ans, root);
-        return ans;
-    }
-    private void inorderTraversal(List<Integer> ans, TreeNode root)
-    {
-        if(root == null)
-            return;
-        else
-        {
-            inorderTraversal(ans, root.left);
-            ans.add(root.val);
-            inorderTraversal(ans, root.right);
-        }
-    }
-}
-```
-
-## 2 非递归
-
-具体方法还是看代码吧. 感觉很难描述.
-
-当初看解析的时候也看了半天才懂
+参考于 https://www.cnblogs.com/dolphin0520/archive/2011/08/25/2153720.html
 
 ```java
 /**
@@ -119,23 +77,22 @@ class Solution {
  * }
  */
 class Solution {
-    public List<Integer> inorderTraversal(TreeNode root) {
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> preorder = new ArrayList<>();
         Stack<TreeNode> stk = new Stack<>();
-        List<Integer> inorder = new ArrayList<>();
         TreeNode p = root;
         while(p != null || !stk.isEmpty())
         {
             while(p != null)
             {
+                preorder.add(p.val);
                 stk.push(p);
                 p = p.left;
             }
-            
             p = stk.pop();
-            inorder.add(p.val);
             p = p.right;
         }
-        return inorder;
+        return preorder;
     }
 }
 ```
