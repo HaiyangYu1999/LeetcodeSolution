@@ -48,7 +48,7 @@ In 2015-01-04, temperature was higher than the previous day (30 -> 20).
 
 注意date类型的加减法是用`date_add()`实现的
 
-```mysql
+```sql
 # Write your MySQL query statement below
 SELECT t1.id FROM Weather AS t1, Weather AS t2 WHERE t1.recordDate = date_add(t2.recordDate, interval 1 day) AND t1.Temperature > t2.Temperature;
 ```

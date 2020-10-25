@@ -25,7 +25,7 @@ Given the `Employee` table, write a SQL query that finds out employees who earn 
 
 自联结即可
 
-```mysql
+```sql
 # Write your MySQL query statement below
 SELECT p1.Name AS Employee FROM Employee AS p1, Employee AS p2 
 WHERE p1.ManagerId = p2.Id AND p1.Salary > p2.Salary;

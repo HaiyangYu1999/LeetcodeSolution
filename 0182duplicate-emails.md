@@ -42,7 +42,7 @@ For example, your query should return the following for the above table:
 | 3    | a@b.com | 1    | a@b.com |
 最后再加一个distinct即可
 
-```mysql
+```sql
 # Write your MySQL query statement below
 select distinct t1.Email from Person as t1, Person as t2 
 where t1.Email = t2.Email and t1.Id != t2.Id; 

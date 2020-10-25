@@ -32,8 +32,8 @@ Your output is the whole `Person` table after executing your sql. Use `delete` s
 
 然后再删除在这个集合中的邮箱.
 
-```mysql
-# error You can't specify target table 'p' for update in FROM clause
+```sql
+# error You cant specify target table 'p' for update in FROM clause
 DELETE FROM Person WHERE Id IN 
 (
 	SELECT p1.Id FROM Person AS p1, Person AS p2 WHERE p1.Email = p2.Email AND p1.Id > p2.Id
@@ -46,7 +46,7 @@ DELETE FROM Person WHERE Id IN
 
 解决子查询1的做法是, 把子查询的结果重命名一下, 重命名到`Tmp`上, 这样就不会产生问题了
 
-```mysql
+```sql
 # Write your MySQL query statement below
 DELETE FROM Person WHERE Id IN 
 (

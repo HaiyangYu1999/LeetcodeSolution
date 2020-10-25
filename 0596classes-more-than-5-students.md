@@ -41,7 +41,7 @@ The students should not be counted duplicate in each course.
 
 但是要注意, 在测试样例中, (A, Math)这样的元组可能出现多次, 不要统计相同的学生和相同的课. 要用COUNT(DISTINCT name)
 
-```mysql
+```sql
 # Write your MySQL query statement below
 SELECT class FROM courses GROUP BY class HAVING count(DISTINCT student) >= 5;
 ```

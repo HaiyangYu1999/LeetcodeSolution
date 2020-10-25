@@ -30,7 +30,7 @@ After running your **update** statement, the above salary table should have the 
 
 不知道case之前完全没思路, 知道了之后就很简单了. case...when...then...else...end.
 
-```mysql
+```sql
 # Write your MySQL query statement below
 UPDATE salary SET sex = CASE sex WHEN 'm' THEN 'f' ELSE 'm' END;
 ```
@@ -41,7 +41,7 @@ UPDATE salary SET sex = CASE sex WHEN 'm' THEN 'f' ELSE 'm' END;
 
 很棒的解法!
 
-```mysql
+```sql
 update salary set sex = char(ascii('m') + ascii('f') - ascii(sex));
 ```
 

@@ -31,7 +31,7 @@ For the example above, the output should be:
 
 ## 直接查询即可
 
-```mysql
+```sql
 # Write your MySQL query statement below
 SELECT * FROM cinema WHERE id % 2 != 0 AND description != 'boring' ORDER BY rating DESC;
 ```

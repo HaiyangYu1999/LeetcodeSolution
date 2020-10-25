@@ -37,7 +37,7 @@ FirstName, LastName, City, State
 
 如果使用INNER JOIN, 在测试样例中, 有的PersonId只在表Person中出现, 但是答案要求没在Address中出现的要用NULL. 所以只能用表Person LEFT OUTER JOIN Address.
 
-```mysql
+```sql
 # Write your MySQL query statement below
 SELECT FirstName, LastName, City, State FROM Person LEFT OUTER JOIN Address ON Person.PersonId = Address.PersonId;
 ```
