@@ -80,7 +80,7 @@ private:
 
 假如二叉树是平衡的, 那么第1层递归要在1个长为n的数组中找1个`inorder_parentNode`, 第2层递归要在2个长为n/2的数组中找2个`inorder_parentNode`, ..., 第log n层递归要在2\^(n-1)个长为n/2\^(n-1)的数组中找2\^(n-1)个`inorder_parentNode`. 总的查找时间为n * log n. 若二叉树不平衡, 考虑任何一个节点只有左子树, 则查找时间升高到n(n-1)/2. 非常费时间
 
-#### **所以在相同的数组中多次进行元素查找可以用哈希表加快查询速度. ** 参考leetcode 1.
+ **所以在相同的数组中多次进行元素查找可以用哈希表加快查询速度. ** 参考leetcode 1.
 
 ```c++
 unordered_map<int, vector<int>::iterator> mp;
